@@ -20,10 +20,10 @@ periodically.
 
 ## Features
 
-- Create a Terraform Cloud/Enteprise workspace
+- Create a Terraform Cloud/Enterprise workspace
 - Set configuration settings:
   - VCS
-  - Varibales
+  - Variables
   - Alerts
   - Triggers
 - Remove workspaces
@@ -93,7 +93,7 @@ Full contributing [guidelines are covered here](CONTRIBUTING.md).
 
 * [Marko Bevc](https://github.com/mbevc1)
 * [David O'Rourke](https://github.com/phyber)
-* Full [contributors list](graphs/contributors)
+* Full [contributors list](https://github.com/scalefactory/terraform-tfe-workspaces/graphs/contributors)
 
 ## License
 
