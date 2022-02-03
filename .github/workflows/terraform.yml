@@ -5,6 +5,11 @@ on:
     branches:
     - main
     - '**'
+  paths:
+      - '**/*.tpl'
+      - '**/*.py'
+      - '**/*.tf'
+      - '.github/workflows/terraform.yml'
   #pull_request: {}
   workflow_dispatch: {}
 
