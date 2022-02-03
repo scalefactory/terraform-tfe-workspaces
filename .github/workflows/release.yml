@@ -5,6 +5,7 @@ on:
   push:
     tags:
       - "v*.*.*"
+      #- "v*"
 
 jobs:
   release:
@@ -18,5 +19,21 @@ jobs:
         with:
           persist-credentials: false
           fetch-depth: 0
-      - name: Release
-        uses: softprops/action-gh-release@v1
+      #- name: Release
+      #  uses: softprops/action-gh-release@v1
+      - name: Generate changelog
+        id: changelog
+        uses: metcalfc/changelog-generator@v3.0.0
+        with:
+          myToken: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Release
+        id: create_release
+        uses: actions/create-release@latest
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ github.ref }}
+          release_name: Release ${{ github.ref }}
+          body: ${{ steps.changelog.outputs.changelog }}
+          draft: false
+          prerelease: false
