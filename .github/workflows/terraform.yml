@@ -21,9 +21,11 @@ jobs:
 
     strategy:
       matrix:
+        os: [ubuntu-latest, windows-latest]
         tf-ver:
           - '1.1'
           - '1.2'
+          - 'latest'
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -40,7 +42,7 @@ jobs:
       uses: hashicorp/setup-terraform@v2
       # defaults to latest
       with:
-        terraform_version: matrix.tf-ver
+        terraform_version: ${{ matrix.tf-ver }}
       #with:
       #  cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
