@@ -63,6 +63,8 @@ module "workspaces" {
   triggers           = var.triggers
   TFC_WORKSPACE_NAME = var.TFC_WORKSPACE_NAME
 
+  var_sets = var.var_sets
+
   vars = {
     AWS_ACCESS_KEY_ID = var.aws_access_key_id
   }
@@ -77,6 +79,29 @@ _terraform.auto.tfvars_:
 ```terraform
 workspaces = {
   shared       = "terraform/shared"
+}
+
+var_sets = {
+    test = {
+        desc   = "Testing"
+        global = false
+        vars = {
+            a = {
+                val       = 1
+                sensitive = false
+                desc      = "woohoo"
+                category  = "env"
+            }
+            b = {
+                val       = 2
+                sensitive = true
+            }
+        }
+        workspaces = [
+          "workspace1",
+          "workspace2",
+        ]
+    }
 }
 ```
 

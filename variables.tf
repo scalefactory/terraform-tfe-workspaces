@@ -78,6 +78,19 @@ variable "sec_vars" {
   default     = {}
 }
 
+variable "var_sets" {
+  description = "Map defining variable sets"
+  type = any
+  #map(object({
+    # TODO: refactor using optional values when TF v1.3 is released
+    #desc       = optional(string)
+    #global     = optional(bool, false)
+    #vars       = map(any)
+    #workspaces = optional(list(string))
+  #}))
+  default = {}
+}
+
 variable "TFC_WORKSPACE_NAME" {
   description = "TFC workspace name from the ENV"
   type        = string
