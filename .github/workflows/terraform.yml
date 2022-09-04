@@ -23,8 +23,8 @@ jobs:
       matrix:
         os: [ubuntu-latest, windows-latest]
         tf-ver:
-          - '~1.1.0'
-          - '~1.2.0'
+          - '~1.1'
+          - '~1.2'
           - 'latest'
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
