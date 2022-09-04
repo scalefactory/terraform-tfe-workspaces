@@ -1,15 +1,3 @@
-#// Should be provided from the Terraform Cloud environment
-#variable aws_access_key_id {
-#  description = "The AWS_ACCESS_KEY_ID for TerraformCloud runs"
-#  type        = string
-#}
-#
-#// Should be provided from the Terraform Cloud environment
-#variable aws_secret_access_key {
-#  description = "The AWS_SECRET_ACCESS_KEY for TerraformCloud runs"
-#  type        = string
-#}
-
 variable "oauth_token_id" {
   description = "ID of the oAuth token for the VCS connection"
   type        = string
@@ -80,13 +68,13 @@ variable "sec_vars" {
 
 variable "var_sets" {
   description = "Map defining variable sets"
-  type = any
+  type        = any
+  # TODO: refactor using optional values when TF v1.3 is released
   #map(object({
-    # TODO: refactor using optional values when TF v1.3 is released
-    #desc       = optional(string)
-    #global     = optional(bool, false)
-    #vars       = map(any)
-    #workspaces = optional(list(string))
+  #desc       = optional(string)
+  #global     = optional(bool, false)
+  #vars       = map(any)
+  #workspaces = optional(list(string))
   #}))
   default = {}
 }

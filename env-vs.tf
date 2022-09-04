@@ -1,6 +1,7 @@
 locals {
-  # flatten ensures that this local value is a flat list of objects, rather
+  # flatten() ensures that this local value is a flat list of objects, rather
   # than a list of lists of objects.
+  # Generate variable sets and variables pair with arguments to create resources
   vs_vars = flatten([
     for name, obj in var.var_sets : [
       for k, o in obj.vars : {
@@ -16,10 +17,10 @@ locals {
 
   vs_work = flatten([
     for name, obj in var.var_sets : [
-      for w in contains(keys(obj), "workspaces") ? obj.workspaces : [] : {
+      for w in contains(keys(obj), "workspaces") ? obj.workspaces : [] : { # Only if workspaces key is present
         name      = name
         workspace = w
-      } if lookup(obj, "global", false) # Only if has key and not a global Variable Set
+      } if lookup(obj, "global", false) # Only if has key and not a global Variable set
     ]
   ])
 }
@@ -47,14 +48,14 @@ resource "tfe_variable" "var_sets" {
   sensitive       = each.value.sensitive
 
   lifecycle {
-    create_before_destroy = false # Cannot have two variable with the same key present
+    create_before_destroy = false # To avoid having two variables with the same key
   }
 }
 
 data "tfe_workspace_ids" "var_sets" {
   for_each = var.var_sets
 
-  names        = lookup(each.value, "workspaces", []) # Could be unset - use empty list
+  names        = lookup(each.value, "workspaces", []) # If unset use empty list
   organization = var.organization
 }
 

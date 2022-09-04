@@ -1,6 +1,7 @@
 locals {
-  # flatten ensures that this local value is a flat list of objects, rather
+  # flatten() ensures that this local value is a flat list of objects, rather
   # than a list of lists of objects.
+  # Generate workspace variables pairs to create resources, both (non-)sensistive
   work_vars = flatten([
     for work, path in var.workspaces : [
       for var_key, var in var.vars : {
@@ -38,7 +39,7 @@ resource "tfe_variable" "vars" {
   sensitive    = false
 
   lifecycle {
-    create_before_destroy = false # Cannot have two variable with the same key present
+    create_before_destroy = false # To avoid having two variables with the same key
   }
 }
 
@@ -56,6 +57,6 @@ resource "tfe_variable" "sec_vars" {
   sensitive    = true
 
   lifecycle {
-    create_before_destroy = false # Cannot have two variable with the same key present
+    create_before_destroy = false # To avoid having two variables with the same key
   }
 }
