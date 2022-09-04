@@ -17,11 +17,11 @@ jobs:
   terraform:
     name: 'Terraform'
     # -latest was 18.04 # 20.0.4
-    runs-on: ubuntu-latest
+    runs-on: ${{ matrix.os }}
 
     strategy:
       matrix:
-        #os: [ubuntu-latest, windows-latest]
+        os: [ubuntu-latest, windows-latest]
         tf-ver:
           - '~1.1'
           - '~1.2' # Same as 1.2.x
@@ -45,6 +45,14 @@ jobs:
         terraform_version: ${{ matrix.tf-ver }}
       #with:
       #  cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+
+    - name: Validate Teraform Version - ${{ matrix['terraform-versions'] }}
+      if: ${{ matrix['terraform-versions'] != 'latest' }}
+      run: terraform version | grep ${{ matrix['terraform-versions']}}
+
+    - name: Validate Teraform Version - ${{ matrix['terraform-versions'] }}
+      if: ${{ matrix['terraform-versions'] == 'latest' }}
+      run: terraform version | grep 'Terraform v'
 
     # Initialize a new or existing Terraform working directory by creating initial files, loading any remote state, downloading modules, etc.
     #- name: Terraform Init
