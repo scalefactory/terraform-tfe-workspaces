@@ -17,14 +17,14 @@ jobs:
   terraform:
     name: 'Terraform'
     # -latest was 18.04 # 20.0.4
-    runs-on: ubuntu-latesti
+    runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        os: [ubuntu-latest, windows-latest]
+        #os: [ubuntu-latest, windows-latest]
         tf-ver:
           - '~1.1'
-          - '~1.2'
+          - '~1.2' # Same as 1.2.x
           - 'latest'
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
