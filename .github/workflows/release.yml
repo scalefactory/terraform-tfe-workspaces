@@ -23,7 +23,7 @@ jobs:
       #  uses: softprops/action-gh-release@v1
       - name: Generate changelog
         id: changelog
-        uses: metcalfc/changelog-generator@v3
+        uses: metcalfc/changelog-generator@v3.0.0
         with:
           myToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Create Release
