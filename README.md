@@ -145,9 +145,13 @@ Apache 2 Licensed. See [LICENSE](LICENSE) for full details.
 | [tfe_notification_configuration.slack](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/notification_configuration) | resource |
 | [tfe_run_trigger.trigger](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/run_trigger) | resource |
 | [tfe_variable.sec_vars](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable) | resource |
+| [tfe_variable.var_sets](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable) | resource |
 | [tfe_variable.vars](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable) | resource |
+| [tfe_variable_set.var_sets](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/variable_set) | resource |
 | [tfe_workspace.workspace](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace) | resource |
+| [tfe_workspace_variable_set.map](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/resources/workspace_variable_set) | resource |
 | [tfe_workspace.current](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/data-sources/workspace) | data source |
+| [tfe_workspace_ids.var_sets](https://registry.terraform.io/providers/hashicorp/tfe/latest/docs/data-sources/workspace_ids) | data source |
 
 ## Inputs
 
@@ -162,6 +166,7 @@ Apache 2 Licensed. See [LICENSE](LICENSE) for full details.
 | <a name="input_tag_names"></a> [tag\_names](#input\_tag\_names) | List of workspace tag names | `list(any)` | `[]` | no |
 | <a name="input_tf_version"></a> [tf\_version](#input\_tf\_version) | Version of Terraform to use in workspace | `string` | `null` | no |
 | <a name="input_triggers"></a> [triggers](#input\_triggers) | Map for TFE trigger relations workspace->workspace2 | `map(any)` | `{}` | no |
+| <a name="input_var_sets"></a> [var\_sets](#input\_var\_sets) | Map defining variable sets | `any` | `{}` | no |
 | <a name="input_vars"></a> [vars](#input\_vars) | Map defining workspace variables | `map(any)` | `{}` | no |
 | <a name="input_vcs_org"></a> [vcs\_org](#input\_vcs\_org) | The Github organization that repositories live under | `string` | n/a | yes |
 | <a name="input_vcs_repo"></a> [vcs\_repo](#input\_vcs\_repo) | The Github repository name that is backing this workspace | `string` | n/a | yes |
