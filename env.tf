@@ -36,6 +36,10 @@ resource "tfe_variable" "vars" {
   workspace_id = tfe_workspace.workspace[each.value.work].id
   description  = "${each.value.var_key} for TerraformCloud"
   sensitive    = false
+
+  lifecycle {
+    create_before_destroy = false # Cannot have two variable with the same key present
+  }
 }
 
 resource "tfe_variable" "sec_vars" {
@@ -50,4 +54,8 @@ resource "tfe_variable" "sec_vars" {
   workspace_id = tfe_workspace.workspace[each.value.work].id
   description  = "${each.value.var_key} for TerraformCloud"
   sensitive    = true
+
+  lifecycle {
+    create_before_destroy = false # Cannot have two variable with the same key present
+  }
 }
