@@ -16,8 +16,14 @@ on:
 jobs:
   terraform:
     name: 'Terraform'
-    # -latest was 18.04
-    runs-on: ubuntu-20.04
+    # -latest was 18.04 # 20.0.4
+    runs-on: ubuntu-latesti
+
+    strategy:
+      matrix:
+        tf-ver:
+          - '1.1'
+          - '1.2'
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
     defaults:
@@ -30,11 +36,11 @@ jobs:
       uses: actions/checkout@v3
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
-    - name: Setup Terraform
+    - name: "Setup Terraform ${{ matrix.tf-ver }}"
       uses: hashicorp/setup-terraform@v2
       # defaults to latest
-      #with:
-      #  terraform_version: 1.1.5
+      with:
+        terraform_version: matrix.tf-ver
       #with:
       #  cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
