@@ -11,7 +11,9 @@ resource "tfe_workspace" "workspace" {
   file_triggers_enabled         = true
   auto_apply                    = false
   execution_mode                = var.execution_mode
-  structured_run_output_enabled = false
+  structured_run_output_enabled = var.structured_run_output_enabled
+  assessments_enabled           = var.assessments_enabled
+  speculative_enabled           = var.speculative_enabled
   tag_names                     = var.tag_names
 
   vcs_repo {

@@ -130,13 +130,13 @@ Apache 2 Licensed. See [LICENSE](LICENSE) for full details.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.6, < 2.0 |
-| <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) | ~> 0.36.1 |
+| <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) | ~> 0.38.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | ~> 0.36.1 |
+| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | ~> 0.38.0 |
 
 ## Resources
 
@@ -158,11 +158,14 @@ Apache 2 Licensed. See [LICENSE](LICENSE) for full details.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_TFC_WORKSPACE_NAME"></a> [TFC\_WORKSPACE\_NAME](#input\_TFC\_WORKSPACE\_NAME) | TFC workspace name from the ENV | `string` | `null` | no |
+| <a name="input_assessments_enabled"></a> [assessments\_enabled](#input\_assessments\_enabled) | Regularly run health assessments such as drift detection on the workspace | `bool` | `false` | no |
 | <a name="input_execution_mode"></a> [execution\_mode](#input\_execution\_mode) | Terraform worskapce execution more: remote, local or agent | `string` | `"remote"` | no |
 | <a name="input_oauth_token_id"></a> [oauth\_token\_id](#input\_oauth\_token\_id) | ID of the oAuth token for the VCS connection | `string` | n/a | yes |
 | <a name="input_organization"></a> [organization](#input\_organization) | TF Organization to create workspaces under | `string` | n/a | yes |
 | <a name="input_sec_vars"></a> [sec\_vars](#input\_sec\_vars) | Map defining workspace sensitive variables | `map(any)` | `{}` | no |
 | <a name="input_slacks"></a> [slacks](#input\_slacks) | Map definning Slack notification options | `map(any)` | `{}` | no |
+| <a name="input_speculative_enabled"></a> [speculative\_enabled](#input\_speculative\_enabled) | Weather running plans on pull requests | `bool` | `true` | no |
+| <a name="input_structured_run_output_enabled"></a> [structured\_run\_output\_enabled](#input\_structured\_run\_output\_enabled) | Whether this workspace should show output from Terraform runs using the enhanced UI when available | `bool` | `false` | no |
 | <a name="input_tag_names"></a> [tag\_names](#input\_tag\_names) | List of workspace tag names | `list(any)` | `[]` | no |
 | <a name="input_tf_version"></a> [tf\_version](#input\_tf\_version) | Version of Terraform to use in workspace | `string` | `null` | no |
 | <a name="input_triggers"></a> [triggers](#input\_triggers) | Map for TFE trigger relations workspace->workspace2 | `map(any)` | `{}` | no |

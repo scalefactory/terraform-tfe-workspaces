@@ -48,6 +48,24 @@ variable "execution_mode" {
   default     = "remote"
 }
 
+variable "structured_run_output_enabled" {
+  description = "Whether this workspace should show output from Terraform runs using the enhanced UI when available"
+  type        = bool
+  default     = false
+}
+
+variable "assessments_enabled" {
+  description = "Regularly run health assessments such as drift detection on the workspace"
+  type        = bool
+  default     = false
+}
+
+variable "speculative_enabled" {
+  description = "Weather running plans on pull requests"
+  type        = bool
+  default     = true
+}
+
 variable "tag_names" {
   description = "List of workspace tag names"
   type        = list(any)
