@@ -25,6 +25,7 @@ jobs:
         tf-ver:
           - '~1.0' # Same as 1.0.x
           - '~1.1' # Same as 1.1.x
+          - '~1.2' # Same as 1.1.x
           - 'latest'
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
