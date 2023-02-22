@@ -4,12 +4,12 @@ resource "tfe_workspace" "workspace" {
 
   name                          = each.key
   description                   = "Workspace: ${each.key} | Triggered from path: ${each.value}"
-  allow_destroy_plan            = true
+  allow_destroy_plan            = var.allow_destroy_plan
   organization                  = var.organization
   terraform_version             = local.tf_version
   working_directory             = each.value
   file_triggers_enabled         = true
-  auto_apply                    = false
+  auto_apply                    = var.auto_apply
   execution_mode                = var.execution_mode
   structured_run_output_enabled = var.structured_run_output_enabled
   assessments_enabled           = var.assessments_enabled

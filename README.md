@@ -158,7 +158,9 @@ Apache 2 Licensed. See [LICENSE](LICENSE) for full details.
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
 | <a name="input_TFC_WORKSPACE_NAME"></a> [TFC\_WORKSPACE\_NAME](#input\_TFC\_WORKSPACE\_NAME) | TFC workspace name from the ENV | `string` | `null` | no |
+| <a name="input_allow_destroy_plan"></a> [allow\_destroy\_plan](#input\_allow\_destroy\_plan) | Whether destroy plans can be queued on the workspace | `bool` | `true` | no |
 | <a name="input_assessments_enabled"></a> [assessments\_enabled](#input\_assessments\_enabled) | Regularly run health assessments such as drift detection on the workspace | `bool` | `false` | no |
+| <a name="input_auto_apply"></a> [auto\_apply](#input\_auto\_apply) | Whether to automatically apply changes when a Terraform plan is successful | `bool` | `false` | no |
 | <a name="input_execution_mode"></a> [execution\_mode](#input\_execution\_mode) | Terraform worskapce execution more: remote, local or agent | `string` | `"remote"` | no |
 | <a name="input_oauth_token_id"></a> [oauth\_token\_id](#input\_oauth\_token\_id) | ID of the oAuth token for the VCS connection | `string` | n/a | yes |
 | <a name="input_organization"></a> [organization](#input\_organization) | TF Organization to create workspaces under | `string` | n/a | yes |
