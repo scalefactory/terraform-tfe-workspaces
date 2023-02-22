@@ -3,7 +3,6 @@ name: 'Terraform'
 on:
   push:
     branches:
-      - main
       - '**'
     paths:
       - '**/*.tpl'
