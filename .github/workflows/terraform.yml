@@ -3,7 +3,7 @@ name: 'Terraform'
 on:
   push:
     branches:
-      - 'main'
+      - main
     paths:
       - '**/*.tpl'
       - '**/*.py'
