@@ -54,8 +54,20 @@ variable "structured_run_output_enabled" {
   default     = false
 }
 
+variable "allow_destroy_plan" {
+  description = "Whether destroy plans can be queued on the workspace"
+  type        = bool
+  default     = true
+}
+
 variable "assessments_enabled" {
   description = "Regularly run health assessments such as drift detection on the workspace"
+  type        = bool
+  default     = false
+}
+
+variable "auto_apply" {
+  description = "Whether to automatically apply changes when a Terraform plan is successful"
   type        = bool
   default     = false
 }
