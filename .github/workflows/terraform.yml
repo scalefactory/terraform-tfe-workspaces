@@ -9,7 +9,14 @@ on:
       - '**/*.py'
       - '**/*.tf'
       - '.github/workflows/terraform.yml'
-  #pull_request: {}
+  pull_request:
+    branches:
+      - '**'
+    paths:
+      - '**/*.tpl'
+      - '**/*.py'
+      - '**/*.tf'
+      - '.github/workflows/terraform.yml'
   workflow_dispatch: {}
 
 jobs:
