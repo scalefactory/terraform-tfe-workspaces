@@ -9,5 +9,4 @@ Please explain the changes you made here and link to any relevant issues.
 
 ### Checklist
 
-- [ ] README.md has been updated after any changes to variables and outputs.
-
+- [ ] README.md has been updated/checked for any changes to variables and outputs.
