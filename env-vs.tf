@@ -20,7 +20,7 @@ locals {
       for w in contains(keys(obj), "workspaces") ? obj.workspaces : [] : { # Only if workspaces key is present
         name      = name
         workspace = w
-      } if lookup(obj, "global", false) # Only if has key and not a global Variable set
+      } if !lookup(obj, "global", false) # Only if not a global Variable set, default to false
     ]
   ])
 }
