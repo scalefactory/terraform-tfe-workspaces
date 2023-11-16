@@ -39,7 +39,7 @@ will configure using the following code:
 _main.tf_:
 ```hcl
 terraform {
-  required_version = ">= 0.13.6, < 2.0"
+  required_version = "~> 1.0"
 
   backend "remote" {
     organization = "scalefactory"
@@ -129,14 +129,14 @@ Apache 2 Licensed. See [LICENSE](LICENSE) for full details.
 
 | Name | Version |
 |------|---------|
-| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 0.13.6, < 2.0 |
-| <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) | ~> 0.48.0 |
+| <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
+| <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) | ~> 0.50.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | ~> 0.48.0 |
+| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | ~> 0.50.0 |
 
 ## Resources
 
