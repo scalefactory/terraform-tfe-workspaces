@@ -130,13 +130,17 @@ Apache 2 Licensed. See [LICENSE](LICENSE) for full details.
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | ~> 1.0 |
-| <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) | ~> 0.50.0 |
+| <a name="requirement_tfe"></a> [tfe](#requirement\_tfe) | ~> 0.71.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | ~> 0.50.0 |
+| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | ~> 0.71.0 |
+
+## Modules
+
+No modules.
 
 ## Resources
 
