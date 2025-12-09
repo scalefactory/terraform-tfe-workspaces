@@ -17,6 +17,7 @@ on:
       - '**/*.py'
       - '**/*.tf'
       - '.github/workflows/terraform.yml'
+      - 'README.md'
   workflow_dispatch: {}
 
 jobs:
