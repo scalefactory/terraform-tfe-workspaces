@@ -136,7 +136,7 @@ Apache 2 Licensed. See [LICENSE](LICENSE) for full details.
 
 | Name | Version |
 |------|---------|
-| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | ~> 0.71.0 |
+| <a name="provider_tfe"></a> [tfe](#provider\_tfe) | 0.71.0 |
 
 ## Modules
 
