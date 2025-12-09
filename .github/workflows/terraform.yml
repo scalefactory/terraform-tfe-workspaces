@@ -17,6 +17,7 @@ on:
       - '**/*.py'
       - '**/*.tf'
       - '.github/workflows/terraform.yml'
+      - 'README.md'
   workflow_dispatch: {}
 
 jobs:
@@ -29,10 +30,10 @@ jobs:
       matrix:
         os: [ubuntu-latest] #, windows-latest]
         tf-ver:
-          - '~1.1' # Same as 1.1.x
-          - '~1.2' # Same as 1.2.x
-          - '~1.3' # Same as 1.3.x
-          - '~1.4' # Same as 1.4.x
+          - '~1.11' # Same as 1.1.x
+          - '~1.12' # Same as 1.2.x
+          - '~1.13' # Same as 1.3.x
+          - '~1.14' # Same as 1.4.x
           - 'latest'
 
     # Use the Bash shell regardless whether the GitHub Actions runner is ubuntu-latest, macos-latest, or windows-latest
@@ -44,6 +45,8 @@ jobs:
     # Checkout the repository to the GitHub Actions runner
     - name: Checkout
       uses: actions/checkout@v6
+      with:
+        ref: ${{ github.event.pull_request.head.ref }}
 
     # Install the latest version of Terraform CLI and configure the Terraform CLI configuration file with a Terraform Cloud user API token
     - name: Setup Terraform ${{ matrix['tf-ver'] }}
@@ -69,6 +72,14 @@ jobs:
         #cd terraform
         terraform fmt -check -recursive -diff
         for i in $(find . -maxdepth 1 -type d); do terraform -chdir=$i init -backend=false; terraform -chdir=$i validate; done
+
+    - name: Render terraform docs inside the README.md and push changes back to PR branch
+      uses: terraform-docs/gh-actions@v1
+      with:
+        working-dir: .
+        output-file: README.md
+        output-method: inject
+        git-push: "true"
 
     # Generates an execution plan for Terraform
 #    - name: Terraform Plan
